@@ -69,3 +69,8 @@
 .\_build\main.o: ..\..\..\..\..\..\components\libraries\util\sdk_common.h
 .\_build\main.o: ..\..\..\..\..\..\components\libraries\util\sdk_os.h
 .\_build\main.o: ..\..\..\..\..\..\components\libraries\util\sdk_macros.h
+.\_build\main.o: ..\..\..\..\..\..\components\drivers_nrf\common\nrf_drv_common.h
+.\_build\main.o: ..\..\..\..\..\..\components\libraries\log\nrf_log.h
+.\_build\main.o: ..\..\..\..\..\..\components\libraries\log\src\nrf_log_internal.h
+.\_build\main.o: ..\..\..\..\..\..\components\libraries\log\nrf_log_ctrl.h
+.\_build\main.o: ..\..\..\..\..\..\components\libraries\log\src\nrf_log_ctrl_internal.h
