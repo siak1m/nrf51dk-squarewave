@@ -2,6 +2,10 @@ ble_app_uart_adc_simple example
 ==================
 
  This project shows basic nRF51 ADC functionality
+
+square wave for stimulation
+-------------
+nrf51dk를 활용한 사각파형 만들기 프로젝트
  
 Requirements
 ------------
