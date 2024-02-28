@@ -57,7 +57,7 @@
 #define CENTRAL_LINK_COUNT              0                                           /**< Number of central links used by the application. When changing this number remember to adjust the RAM settings*/
 #define PERIPHERAL_LINK_COUNT           1                                           /**< Number of peripheral links used by the application. When changing this number remember to adjust the RAM settings*/
 
-#define DEVICE_NAME                     "Nordic-51DK"                               /**< Name of device. Will be included in the advertising data. */
+#define DEVICE_NAME                     "nRF51dk-square"                               /**< Name of device. Will be included in the advertising data. */
 #define NUS_SERVICE_UUID_TYPE           BLE_UUID_TYPE_VENDOR_BEGIN                  /**< UUID type for the Nordic UART Service (vendor specific). */
 
 #define APP_ADV_INTERVAL                64                                          /**< The advertising interval (in units of 0.625 ms. This value corresponds to 40 ms). */
@@ -1033,10 +1033,10 @@ void start_timer2(void)
 	NRF_TIMER2->TASKS_CLEAR = 1;                          //clear time
 	NRF_TIMER2->PRESCALER =9;                            // Set presclaser. Higher number gives slower timer.     
 	NRF_TIMER2->BITMODE = TIMER_BITMODE_BITMODE_16Bit;    //Set counter to 16 bit resolutin
-	NRF_TIMER2->CC[0] = 0;                              //Set vlaue for Timer2 comapre register 0
-	NRF_TIMER2->CC[1] = 31250;                        	    //Set value for timer2 compare register 1
-	NRF_TIMER2->CC[2] = 31250;
-	NRF_TIMER2->CC[3] = 62500;
+	NRF_TIMER2->CC[0] = 0;                              //Set vlaue for Timer2 comapre register 0 //1 second = 31250
+	NRF_TIMER2->CC[1] = 990;                        	    //Set value for timer2 compare register 1
+	//NRF_TIMER2->CC[2] = 31250;
+	//NRF_TIMER2->CC[3] = 62500;
 	//Enable interrupt on Timer2, both for CC[0] and CC[1] compare match events
 	NRF_TIMER2->INTENSET = ( TIMER_INTENSET_COMPARE0_Enabled << TIMER_INTENSET_COMPARE0_Pos
 	                       | TIMER_INTENSET_COMPARE1_Enabled << TIMER_INTENSET_COMPARE1_Pos
@@ -1067,7 +1067,8 @@ void TIMER2_IRQHandler(void)
 		calibration(); //for i2c mpu6050
 		uint8_t str0[5];
 		printf((char*)str0,"ax_cali,ay_cali,az_cali,detection: %d,%d,%d,%d\n",(int)ax_cali,(int)ay_cali,(int)az_cali,(int)detection);
-	}
+	}}
+	/*
 	if((NRF_TIMER2->EVENTS_COMPARE[2] != 0) &&((NRF_TIMER2->INTENSET & TIMER_INTENSET_COMPARE2_Msk) !=0))
 	{ 
 		NRF_TIMER2->EVENTS_COMPARE[2] = 0;
@@ -1081,7 +1082,7 @@ void TIMER2_IRQHandler(void)
 	}
 	
 }
-
+*/
 
 /**@brief Application main function.
  */
