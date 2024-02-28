@@ -2,7 +2,7 @@ ble_app_uart_adc_simple example
 ==================
 
  This project shows basic nRF51 ADC functionality
- \n 타이머 0,1 만 사용하였고, 990으로 수정 31250 = 1초
+ 타이머 0,1 만 사용하였고, 990으로 수정 31250 = 1초
  
 Requirements
 ------------
